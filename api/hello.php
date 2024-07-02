@@ -44,7 +44,7 @@ $clientIp = getVisitorIp();
 $UserCity = getVisitorCityFromIpInfo($clientIp);
 
 
-$temperature = getCurrentTemperature($city, $WeatherApiKey);
+$temperature = getCurrentTemperature($UserCity, $WeatherApiKey);
 
 
 $visitorName = isset($_GET['visitor_name']) ? $_GET['visitor_name'] : 'visitor';

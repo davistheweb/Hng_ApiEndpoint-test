@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} 1-d
+
+RewriteCond %{REQUEST_FILENAME}\.php-f
+
+
+RewriteRule ^(.*)$ $1.php [L]
+
+RewriteCond %{THE_REQUEST} \s(.+?)\.php[\s?]
+
+RewriteRule ^(.+)\.php$ /$1 [R=301,L]

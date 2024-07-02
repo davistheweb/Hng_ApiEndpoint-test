@@ -31,7 +31,7 @@ function getCurrentTemperature($UserCity, $apiKey) {
     $WeatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?q={$UserCity}&appid={$WeatherApiKey}&units=metric";
     $weatherJson = file_get_contents($WeatherApiUrl);
     $weatherData = json_decode($weatherJson, true);
-    return isset($weatherData['main']['temp']) ? $weatherData['main']['temp'] : 'unavailable';
+    return isset($weatherData['main']['temp']) ? $weatherData['main']['temp'] : '(Not found Temp)';
 }
 
 

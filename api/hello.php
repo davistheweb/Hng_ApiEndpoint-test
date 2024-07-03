@@ -1,5 +1,6 @@
 <?php
 
+header('Content-Type: application/json');
 
 function getClientIp() {
     
@@ -27,7 +28,7 @@ function getCityFromIpInfo($ip) {
     return isset($ipInfo['city']) ? $ipInfo['city'] : 'unknown';
 }
 
-
+$city = getCityFromIpInfo($clientIp);
 function getCurrentTemperature($city, $apiKey) {
     $url = "https://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
     $weatherJson = file_get_contents($url);
@@ -42,7 +43,7 @@ $apiKey = '4db2a2adbdd4dc4ceff76ab4135f9bd2';
 $clientIp = getClientIp();
 
 
-$city = getCityFromIpInfo($clientIp);
+
 
 
 $temperature = getCurrentTemperature($city, $apiKey);
@@ -54,7 +55,7 @@ $visitorName = isset($_GET['visitor_name']) ? $_GET['visitor_name'] : 'visitor';
 $greeting = "Hello, {$visitorName}! The temperature is {$temperature} degrees Celsius in {$city}.";
 
 
-header('Content-Type: application/json');
+
 
 
 echo json_encode([

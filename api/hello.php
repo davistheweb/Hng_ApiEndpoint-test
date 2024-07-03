@@ -22,7 +22,7 @@ function getClientIp() {
 }
 
 function getCityFromIpInfo($ip) {
-    $ipInfoJson = file_get_contents("http://ipinfo.io/{$ip}/json");
+    $ipInfoJson = file_get_contents("http://ipinfo.io/{$ip}/json?token=d4c4083a42fd48");
     $ipInfo = json_decode($ipInfoJson, true);
     return isset($ipInfo['city']) ? $ipInfo['city'] : 'unknown';
 }
@@ -36,7 +36,7 @@ function getCurrentTemperature($city, $apiKey) {
 }
 
 
-$apiKey = '3dfb9919a4259f4cc65c6db7a0a6b35b';
+$apiKey = '4db2a2adbdd4dc4ceff76ab4135f9bd2';
 
 
 $clientIp = getClientIp();
